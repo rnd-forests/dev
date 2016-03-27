@@ -1,1 +1,57 @@
+# Everyday works
+alias pbcopy='xsel --clipboard --input && copied_message'
+alias pbpaste='xsel --clipboard --output'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias c='clear'
+alias ps?='ps aux | grep'
+alias whatip='curl http://ipecho.net/plain; echo'
+alias chx='chmod 755'
+alias chr='chmod 644'
+alias rmf='rm -rf'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
+cls() {
+    cd "$1"; ls;
+}
+
+ssh_message() {
+    notify-send 'Copied SSH key to clipboard.' --urgency='normal' -i /home/vinhnguyen/Icons/key.png
+}
+
+copied_message() {
+    notify-send "Copied to clipboard!" -i /home/vinhnguyen/Icons/copy.png
+}
+
+pkgs() {
+    apt-cache pkgnames | grep -i "$1" | sort
+}
+
+# GIT stuffs
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gundo='git reset HEAD~ && git clean -df'
+alias gc='git commit'
+alias gs='git status'
+alias gb='git branch'
+alias gco='git checkout'
+alias gr='git rebase'
+alias gri='git rebase -i'
+alias grs='git reset'
+alias gd='git diff'
+alias ga='git add'
+alias gaa='git add --all'
+
+# SSH key
+alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && ssh_message"
+
+# Homestead and Vagrant stuffs
+alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
+alias hson='homestead up && homestead ssh'
+alias hsoff='homestead halt && exit'
+
+# Laravel stuffs
+alias artisan='php artisan'
+alias migrate='php artisan migrate'
+alias tinker='php artisan tinker'
