@@ -1,4 +1,4 @@
-alias pbcopy='xsel --clipboard --input && copied_message'
+alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
 alias ..='cd ..'
@@ -36,20 +36,38 @@ alias shutdown='sudo /sbin/shutdown'
 alias chrome='/opt/google/chrome/chrome'
 alias src='source ~/.bashrc'
 
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
 cls() {
-    cd "$1"; ls;
+  cd "$1"; ls;
 }
 
 ssh_message() {
-    notify-send 'Copied SSH key to clipboard.' --urgency='normal' -i /home/vinhnguyen/Icons/key.png
+  notify-send 'Copied SSH key to clipboard.' --urgency='normal' -i /home/likewise-open/FRAMGIA/nguyen.ngoc.vinh/Icons/key.png
 }
 
 copied_message() {
-    notify-send "Copied to clipboard!" -i /home/vinhnguyen/Icons/copy.png
+  notify-send "Copied to clipboard!" -i /home/likewise-open/FRAMGIA/nguyen.ngoc.vinh/Icons/copy.png
 }
 
 pkgs() {
-    apt-cache pkgnames | grep -i "$1" | sort
+  apt-cache pkgnames | grep -i "$1" | sort
+}
+
+git_branch() {
+  if ! git rev-parse --git-dir > /dev/null 2>&1; then
+    return 0
+  fi
+  branch=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
+  echo "$branch"
 }
 
 # GIT stuffs
@@ -64,7 +82,12 @@ alias gri='git rebase -i'
 alias grs='git reset'
 alias gd='git diff'
 alias ga='git add'
+alias gp='git push'
 alias gaa='git add --all'
+alias grss='git reset --soft HEAD~'
+grip() {
+  gaa; gc -m "a"; gri HEAD~"$1"; gp origin $(git_branch) -f;
+}
 
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && ssh_message"
 
@@ -74,6 +97,7 @@ alias hsoff='homestead halt && exit'
 alias artisan='php artisan'
 alias migrate='php artisan migrate'
 alias tinker='php artisan tinker'
+alias t='./vendor/bin/phpunit'
 
 extract() {
     if [ -f $1 ] ; then
@@ -95,3 +119,6 @@ extract() {
          echo "'$1' is not a valid file"
      fi
 }
+
+alias busy="cat /dev/urandom | hexdump -C | grep \"ca fe\""
+kernelgraph() { lsmod | perl -e 'print "digraph \"lsmod\" {";<>;while(<>){@_=split/\s+/; print "\"$_[0]\" -> \"$_\"\n" for split/,/,$_[3]}print "}"' | dot -Tpng | display -;}
