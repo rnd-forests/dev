@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
     # a case would tend to support setf rather than setaf.)
     color_prompt=yes
     else
-    color_prompt=
+    color_prompt=yes
     fi
 fi
 
@@ -84,26 +84,22 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-
 parse_git_branch() {
   if ! git rev-parse --git-dir > /dev/null 2>&1; then
     return 0
   fi
   branch=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
-  echo [$branch]
+  echo " $branch "
 }
 
 if [ "$color_prompt" = yes ]; then
-  PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\w\[\033[01;31m\] $(parse_git_branch)\[\033[00m\] ➜ '
+  PS1='${debian_chroot:+($debian_chroot)}\n\[\033[38;5;0m\]\[\033[48;5;14m\] \t \[\033[38;5;0m\]\[\033[38;5;0m\]\[\033[48;5;9m\] \u \[\033[38;5;15m\]\[\033[38;5;0m\]\[\033[48;5;11m\] \h \[\033[38;5;15m\]\[\033[38;5;0m\]\[\033[48;5;48m\] \w \[\033[38;5;0m\]\[\033[48;5;15m\]$(parse_git_branch)\[$(tput sgr0)\]\n\n➜ '
 else
   PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
+export PATH="$PATH:$HOME/.composer/vendor/bin"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-export PATH="$PATH:$HOME/.composer/vendor/bin"
