@@ -123,6 +123,3 @@ extract() {
          echo "'$1' is not a valid file"
      fi
 }
-
-alias busy="cat /dev/urandom | hexdump -C | grep \"ca fe\""
-kernelgraph() { lsmod | perl -e 'print "digraph \"lsmod\" {";<>;while(<>){@_=split/\s+/; print "\"$_[0]\" -> \"$_\"\n" for split/,/,$_[3]}print "}"' | dot -Tpng | display -;}
