@@ -89,6 +89,9 @@ alias gop='git open'
 grip() {
   gaa; gc -m "a"; gri HEAD~"$1"; gp origin $(git_branch) -f;
 }
+gap() {
+  gaa; gc -m "$1"; gp origin $(git_branch); gop;
+}
 
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && ssh_message"
 
