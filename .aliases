@@ -87,10 +87,13 @@ alias gaa='git add --all'
 alias grss='git reset --soft HEAD~'
 alias gop='git open'
 grip() {
-  gaa; gc -m "a"; gri HEAD~"$1"; gp origin $(git_branch) -f;
+  gaa; gc -m "a"; gri HEAD~"$1"; gp origin $(git_branch) -f; gop;
 }
 gap() {
   gaa; gc -m "$1"; gp origin $(git_branch); gop;
+}
+garp() {
+  gaa; git commit --amend --no-edit; gp origin $(git_branch) -f; gop;
 }
 
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && ssh_message"
