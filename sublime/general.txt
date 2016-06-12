@@ -1,0 +1,2 @@
+Hide Status Bar
+Hide Preview Menu
