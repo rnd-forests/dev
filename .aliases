@@ -96,6 +96,10 @@ garp() {
   gaa; git commit --amend --no-edit; gp origin $(git_branch) -f; gop;
 }
 
+gca() {
+  gaa; git commit --amend; gp origin $(git_branch) -f; gop;
+}
+
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && ssh_message"
 
 alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
