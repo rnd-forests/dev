@@ -1,6 +1,32 @@
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
+
+alias ..='cd ..'
+alias ...='cd ../..'
 alias c='clear'
+
+alias ps?='ps aux | grep'
 alias whatip='curl http://ipecho.net/plain; echo'
+
+alias chx='chmod 755'
+alias chr='chmod 644'
+
+alias rmf='rm -rf'
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias install='sudo apt-get install'
 alias sha1='openssl sha1'
+alias ports='netstat -tulanp'
+
+alias ipt='sudo /sbin/iptables'
+alias iptlist='sudo /sbin/iptables -L -n -v --line-numbers'
+alias iptlistin='sudo /sbin/iptables -L INPUT -n -v --line-numbers'
+alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
+alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
+alias firewall=iptlist
 
 alias reboot='sudo /sbin/reboot'
 alias poweroff='sudo /sbin/poweroff'
@@ -8,20 +34,47 @@ alias halt='sudo /sbin/halt'
 alias shutdown='sudo /sbin/shutdown'
 
 alias chrome='/opt/google/chrome/chrome'
+alias src='source ~/.bashrc'
 
-alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && ssh_message"
+serve() {
+    php -S localhost:"$1"
+}
+
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+cls() {
+  cd "$1"; ls;
+}
+
 ssh_message() {
   notify-send 'Copied SSH key to clipboard.' --urgency='normal' -i /home/likewise-open/FRAMGIA/nguyen.ngoc.vinh/Icons/key.png
 }
 
-alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
-alias hson='homestead up && homestead ssh'
-alias hsoff='homestead halt && exit'
-alias artisan='php artisan'
-alias migrate='php artisan migrate'
-alias tinker='php artisan tinker'
-alias t='./vendor/bin/phpunit'
+copied_message() {
+  notify-send "Copied to clipboard!" -i /home/likewise-open/FRAMGIA/nguyen.ngoc.vinh/Icons/copy.png
+}
 
+pkgs() {
+  apt-cache pkgnames | grep -i "$1" | sort
+}
+
+git_branch() {
+  if ! git rev-parse --git-dir > /dev/null 2>&1; then
+    return 0
+  fi
+  branch=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
+  echo "$branch"
+}
+
+# GIT stuffs
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gundo='git reset HEAD~ && git clean -df'
 alias gc='git commit'
@@ -46,10 +99,51 @@ gap() {
 garp() {
   gaa; git commit --amend --no-edit; gp origin $(git_branch) -f; gop;
 }
-git_branch() {
-  if ! git rev-parse --git-dir > /dev/null 2>&1; then
-    return 0
+gca() {
+  gaa; git commit --amend; gp origin $(git_branch) -f; gop;
+}
+
+alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && ssh_message"
+
+alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
+alias hson='homestead up && homestead ssh'
+alias hsoff='homestead halt && exit'
+alias artisan='php artisan'
+alias migrate='php artisan migrate'
+alias tinker='php artisan tinker'
+alias t='./vendor/bin/phpunit'
+
+# 3l Project
+alias dkc='/usr/local/bin/docker-compose'
+alias dkcup='dkc up -d'
+alias dkcdown='dkc down'
+alias 3lw='docker exec -it 3l_workspace /bin/bash'
+alias 3lup='cd ~/Codes/3L/ && dkcup && 3lw'
+alias 3ldown='cd ~/Codes/3L/ && dkcdown'
+alias 3lmigrate='docker exec -it 3l_workspace php artisan migrate'
+alias 3lapi='cd ~/Codes/3L/docs/api && raml2html v1.raml > v1.html'
+alias 3lsql='docker exec -it 3l_mysql /bin/bash'
+alias 3lsqltest='docker exec -it 3l_mysql_test /bin/bash'
+alias 3lmongo='docker exec -it 3l_mongo /bin/bash'
+alias 3lelastic='docker exec -it 3l_elasticsearch /bin/bash'
+
+extract() {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1     ;;
+      *.tar.gz)    tar xzf $1     ;;
+      *.bz2)       bunzip2 $1     ;;
+      *.rar)       unrar e $1     ;;
+      *.gz)        gunzip $1      ;;
+      *.tar)       tar xf $1      ;;
+      *.tbz2)      tar xjf $1     ;;
+      *.tgz)       tar xzf $1     ;;
+      *.zip)       unzip $1       ;;
+      *.Z)         uncompress $1  ;;
+      *.7z)        7z x $1        ;;
+      *)     echo "'$1' cannot be extracted via extract()" ;;
+      esac
+  else
+    echo "'$1' is not a valid file"
   fi
-  branch=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
-  echo "$branch"
 }
