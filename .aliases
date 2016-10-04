@@ -36,8 +36,9 @@ alias shutdown='sudo /sbin/shutdown'
 alias chrome='/opt/google/chrome/chrome'
 alias src='source ~/.bashrc'
 
+# Starting a simple PHP server
 serve() {
-    php -S localhost:"$1"
+  php -S localhost:"$1"
 }
 
 if [ -x /usr/bin/dircolors ]; then
@@ -54,18 +55,11 @@ cls() {
   cd "$1"; ls;
 }
 
-ssh_message() {
-  notify-send 'Copied SSH key to clipboard.' --urgency='normal' -i /home/likewise-open/FRAMGIA/nguyen.ngoc.vinh/Icons/key.png
-}
-
-copied_message() {
-  notify-send "Copied to clipboard!" -i /home/likewise-open/FRAMGIA/nguyen.ngoc.vinh/Icons/copy.png
-}
-
 pkgs() {
   apt-cache pkgnames | grep -i "$1" | sort
 }
 
+# Parsing git branch
 git_branch() {
   if ! git rev-parse --git-dir > /dev/null 2>&1; then
     return 0
@@ -74,7 +68,7 @@ git_branch() {
   echo "$branch"
 }
 
-# GIT stuffs
+# Git aliases
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gundo='git reset HEAD~ && git clean -df'
 alias gc='git commit'
@@ -94,7 +88,7 @@ grip() {
   gaa; gc -m "a"; gri HEAD~"$1"; gp origin $(git_branch) -f; gop;
 }
 gap() {
-  gaa; gc -m "$1"; gp origin $(git_branch); gop;
+  gaa; gc -S -m "$1"; gp origin $(git_branch); gop;
 }
 garp() {
   gaa; git commit --amend --no-edit; gp origin $(git_branch) -f; gop;
@@ -106,21 +100,24 @@ grf() {
   git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
 }
 
+# Copying SSH key
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && ssh_message"
+ssh_message() {
+  notify-send 'Copied SSH key to clipboard.' --urgency='normal' -i /home/likewise-open/FRAMGIA/nguyen.ngoc.vinh/Icons/key.png
+}
 
 # Laravel Homestead
 alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
 alias hson='homestead up && homestead ssh'
 alias hsoff='homestead halt && exit'
-alias artisan='php artisan'
-alias migrate='php artisan migrate'
-alias tinker='php artisan tinker'
+alias art='php artisan'
+alias mg='php artisan migrate'
+alias ti='php artisan tinker'
 alias t='./vendor/bin/phpunit'
 
 # Docker Compose
-alias dkc='/usr/local/bin/docker-compose'
-alias dkcup='dkc up -d'
-alias dkcdown='dkc down'
+alias dkcup='/usr/local/bin/docker-compose up -d'
+alias dkcdown='/usr/local/bin/docker-compose down'
 
 # 3l Project
 alias 3lw='docker exec -it 3l_workspace /bin/bash'
