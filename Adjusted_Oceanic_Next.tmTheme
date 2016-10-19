@@ -50,7 +50,7 @@
         </dict>
         <dict>
             <key>name</key>
-            <string>Comments</string>
+            <string>Comment</string>
             <key>scope</key>
             <string>comment, punctuation.definition.comment</string>
             <key>settings</key>
