@@ -134,8 +134,8 @@ alias 3lelastic='docker exec -it 3l_elasticsearch /bin/bash'
 alias vibw='docker exec -it viblo_workspace /bin/bash'
 alias vibup='cd ~/Codes/Viblo/ && dkcup && vibw'
 alias vibdown='cd ~/Codes/Viblo/ && dkcdown'
-alias vibsql='docker exec -it viblo_mysql /bin/bash'
-alias vibsqltest='docker exec -it viblo_mysql_test /bin/bash'
+alias vibsql='docker exec -it viblo_pgsql /bin/bash'
+alias vibsqltest='docker exec -it viblo_pgsql_test /bin/bash'
 
 extract() {
   if [ -f $1 ] ; then
