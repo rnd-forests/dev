@@ -18,3 +18,10 @@ SimplePHPUnit
 SublimeLinter
 SublimeLinter-php
 WordCount
+AdvancedNewFile
+All Autocomplete
+Can I use
+MarkdownEditing
+PlainTasks
+Pretty JSON
+Vue Syntax Highlight
