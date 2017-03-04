@@ -119,17 +119,6 @@ alias t='./vendor/bin/phpunit'
 alias dkcup='/usr/local/bin/docker-compose up -d'
 alias dkcdown='/usr/local/bin/docker-compose down'
 
-# 3l Project
-alias 3lw='docker exec -it 3l_workspace /bin/bash'
-alias 3lup='cd ~/Codes/3L/ && dkcup && 3lw'
-alias 3ldown='cd ~/Codes/3L/ && dkcdown'
-alias 3lmigrate='docker exec -it 3l_workspace php artisan migrate'
-alias 3lapi='cd ~/Codes/3L/docs/api && raml2html v1.raml > v1.html'
-alias 3lsql='docker exec -it 3l_mysql /bin/bash'
-alias 3lsqltest='docker exec -it 3l_mysql_test /bin/bash'
-alias 3lmongo='docker exec -it 3l_mongo /bin/bash'
-alias 3lelastic='docker exec -it 3l_elasticsearch /bin/bash'
-
 # Viblo Project
 alias vibw='docker exec -it viblo_workspace /bin/bash'
 alias vibup='cd ~/Codes/Viblo/ && dkcup && vibw'
