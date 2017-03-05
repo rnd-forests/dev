@@ -7,7 +7,7 @@ module.exports = {
     fontFamily: '"Operator Mono Medium", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: 'rgba(248,28,229,0.8)',
+    cursorColor: 'rgba(255,255,255,0.8)',
 
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
     cursorShape: 'UNDERLINE',
@@ -16,7 +16,7 @@ module.exports = {
     foregroundColor: '#fff',
 
     // terminal background color
-    backgroundColor: '#000',
+    backgroundColor: '#1B2B34',
 
     // border color (window, tabs)
     borderColor: '#333',
@@ -61,18 +61,6 @@ module.exports = {
       lightWhite: '#ffffff'
     },
 
-    // Set the theme variant,
-    // OPTIONS: 'Darker', 'Palenight', ''
-    theme: '',
-    // Set the rgba() app background opacity, useful when enableVibrance is true
-    // OPTIONS: From 0.1 to 1
-    backgroundOpacity: '1',
-    // Set the accent color for the current active tab
-    accentColor: '#FFFFFF',
-    // Mac Only. Need restart. Enable the dark vibrance and blurred background
-    // NOTE: The backgroundOpacity should be between 0.1 and 0.9 to see the effect.
-    enableVibrance: false,
-
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
     // make sure to use a full path if the binary name doesn't work
@@ -112,10 +100,9 @@ module.exports = {
   plugins: [
     "hyperlinks",
     "hyperterm-cursor",
-    "hyper-material-theme",
-    "hyper-autohide-tabs",
-    "hyperminimal",
-    "hyper-tabs-enhanced"
+    "hyper-tabs-enhanced",
+    "hyper-pane",
+    "hyperterm-atom-dark"
   ],
 
   // in development, you can create a directory under
