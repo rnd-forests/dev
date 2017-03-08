@@ -79,7 +79,7 @@ module.exports = {
     bell: 'SOUND',
 
     // if true, selected text will automatically be copied to the clipboard
-    copyOnSelect: false,
+    copyOnSelect: true,
 
     // if true, on right click selected text will be copied or pasted if no
     // selection is present (true by default on Windows)
@@ -98,8 +98,10 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
+    "hypercwd",
     "hyperlinks",
     "hyperterm-cursor",
+    "hyper-statusline",
     "hyper-tabs-enhanced",
     "hyper-pane",
     "hyperterm-atom-dark"
