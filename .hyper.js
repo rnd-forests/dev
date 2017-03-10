@@ -6,11 +6,17 @@ module.exports = {
     // font family with optional fallbacks
     fontFamily: '"Operator Mono Medium", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
+    // font family for the UI
+    uiFontFamily: '"Droid Sans", sans-serif',
+
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(255,255,255,0.8)',
 
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
     cursorShape: 'UNDERLINE',
+
+    // blink the cursor
+    cursorBlink: true,
 
     // color of the text
     foregroundColor: '#fff',
@@ -100,7 +106,6 @@ module.exports = {
   plugins: [
     "hypercwd",
     "hyperlinks",
-    "hyperterm-cursor",
     "hyper-statusline",
     "hyper-tabs-enhanced",
     "hyper-pane",
