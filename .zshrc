@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/vinhnguyen/.oh-my-zsh
+export ZSH=/home/local/FRAMGIA/nguyen.ngoc.vinh/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -24,7 +24,7 @@ export UPDATE_ZSH_DAYS=7
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
@@ -49,7 +49,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git composer)
+plugins=(zsh-autosuggestions zsh-completions zsh-syntax-highlighting zsh-history-substring-search autojump)
 
 # User configuration
 export PATH="/home/vinhnguyen/.rbenv/plugins/ruby-build/bin:/home/vinhnguyen/.rbenv/shims:/home/vinhnguyen/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/vinhnguyen/.composer/vendor/bin"
@@ -79,3 +79,8 @@ fi
 if [ -f $HOME/.zsh-aliases ]; then
   . $HOME/.zsh-aliases
 fi
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="$HOME/.linuxbrew/bin:$PATH"
