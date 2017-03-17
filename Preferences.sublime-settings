@@ -1,11 +1,21 @@
 {
+	"added_words":
+	[
+		"popup",
+		"lodash",
+		"vue",
+		"html",
+		"plugins",
+		"app"
+	],
 	"auto_complete_cycle": true,
+	"auto_find_in_selection": true,
 	"caret_extra_bottom": 5,
 	"caret_extra_top": 5,
 	"caret_extra_width": 1,
-	"caret_style": "blink",
+	"caret_style": "smooth",
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/User/SublimeLinter/Oceanic_Next (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Agila Oceanic Next (SL).tmTheme",
 	"enable_tab_scrolling": false,
 	"ensure_newline_at_eof_on_save": true,
 	"fade_fold_buttons": true,
@@ -23,10 +33,9 @@
 	"font_face": "Operator Mono Medium",
 	"font_options":
 	[
-		"no_italic",
 		"subpixel_antialias"
 	],
-	"font_size": 11,
+	"font_size": 10,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -37,33 +46,35 @@
 		"draw_normal",
 		"draw_active"
 	],
+	"indent_to_bracket": true,
 	"line_numbers": true,
 	"line_padding_bottom": 6,
 	"line_padding_top": 6,
 	"match_brackets_angle": true,
-	"material_theme_accent_yellow": true,
-	"material_theme_bold_tab": false,
-	"material_theme_compact_panel": true,
-	"material_theme_compact_sidebar": false,
-	"material_theme_contrast_mode": false,
-	"material_theme_disable_fileicons": false,
-	"material_theme_disable_folder_animation": false,
-	"material_theme_disable_tree_indicator": false,
+	"material_theme_accent_red": true,
+	"material_theme_accent_scrollbars": true,
+	"material_theme_bullet_tree_indicator": true,
+	"material_theme_contrast_mode": true,
+	"material_theme_disable_folder_animation": true,
 	"material_theme_panel_separator": true,
 	"material_theme_small_statusbar": true,
 	"material_theme_small_tab": true,
-	"material_theme_tabs_autowidth": true,
 	"material_theme_tabs_separator": true,
 	"material_theme_tree_headings": true,
 	"move_to_limit_on_up_down": true,
 	"overlay_scroll_bars": "enabled",
 	"remember_full_screen": true,
+	"rulers":
+	[
+		120
+	],
 	"save_on_focus_lost": true,
 	"shift_tab_unindent": true,
 	"show_encoding": true,
 	"show_full_path": false,
-	"spell_check": false,
-	"theme": "Material-Theme.sublime-theme",
+	"show_line_endings": true,
+	"spell_check": true,
+	"theme": "Material-Theme-Darker.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": false
