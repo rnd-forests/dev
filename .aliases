@@ -5,7 +5,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias c='clear'
 
-alias ps?='ps aux | grep'
 alias whatip='curl http://ipecho.net/plain; echo'
 
 alias chx='chmod 755'
@@ -34,7 +33,7 @@ alias halt='sudo /sbin/halt'
 alias shutdown='sudo /sbin/shutdown'
 
 alias chrome='/opt/google/chrome/chrome'
-alias src='source ~/.bashrc'
+alias src='source ~/.zshrc'
 
 # Starting a simple PHP server
 serve() {
@@ -105,26 +104,19 @@ grf() {
 # Copying SSH key
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && ssh_message"
 ssh_message() {
-  notify-send 'Copied SSH key to clipboard.' --urgency='normal' -i /home/likewise-open/FRAMGIA/nguyen.ngoc.vinh/Icons/key.png
+  notify-send 'Copied SSH key to clipboard.' --urgency='normal' -i /home/likewise-open/FRAMGIA/nguyen.ngoc.vinh/.cli-icons/key.png
 }
-
-# Laravel Homestead
-alias homestead='function __homestead() { (cd ~/Homestead && vagrant $*); unset -f __homestead; }; __homestead'
-alias hson='homestead up && homestead ssh'
-alias hsoff='homestead halt && exit'
-alias art='php artisan'
-alias mg='php artisan migrate'
-alias ti='php artisan tinker'
-alias t='./vendor/bin/phpunit'
 
 # Docker Compose
 alias dkcup='/usr/local/bin/docker-compose up -d'
 alias dkcdown='/usr/local/bin/docker-compose down'
 
-# Viblo Project
+# Docker projects
+# Viblo
+alias viblo='cd ~/code/viblo'
 alias vibw='docker exec -it viblo_workspace /bin/bash'
-alias vibup='cd ~/Codes/Viblo/ && dkcup && vibw'
-alias vibdown='cd ~/Codes/Viblo/ && dkcdown'
+alias vibup='cd ~/code/viblo/ && dkcup && vibw'
+alias vibdown='cd ~/code/viblo/ && dkcdown'
 alias vibsql='docker exec -it viblo_pgsql /bin/bash'
 alias vibsqltest='docker exec -it viblo_pgsql_test /bin/bash'
 
