@@ -35,11 +35,12 @@ alias shutdown='sudo /sbin/shutdown'
 alias chrome='/opt/google/chrome/chrome'
 alias src='source ~/.zshrc'
 
-# Starting a simple PHP server
+# Starting a simple PHP server.
 serve() {
   php -S localhost:"$1"
 }
 
+# Adding color for some common command.
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls --color=auto'
@@ -50,15 +51,26 @@ if [ -x /usr/bin/dircolors ]; then
   alias egrep='egrep --color=auto'
 fi
 
+# Changing to a specified directory and listing all files inside it.
 cls() {
   cd "$1"; ls;
 }
 
-pkgs() {
-  apt-cache pkgnames | grep -i "$1" | sort
-}
+### Git aliases
+alias gop='git open'
+alias gc='git commit'
+alias gs='git status'
+alias gb='git branch'
+alias gco='git checkout'
+alias gaa='git add --all'
+alias glogo='git log --oneline'
+alias grss='git reset --soft HEAD~'
+alias gpdev='git pull framgia develop'
+alias gpmas='git pull framgia master'
+alias gundo='git reset HEAD~ && git clean -df'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-# Parsing git branch
+# Parsing current git branch
 git_branch() {
   if ! git rev-parse --git-dir > /dev/null 2>&1; then
     return 0
@@ -67,52 +79,41 @@ git_branch() {
   echo "$branch"
 }
 
-# Git aliases
-alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gundo='git reset HEAD~ && git clean -df'
-alias gc='git commit'
-alias gs='git status'
-alias gb='git branch'
-alias gco='git checkout'
-alias gr='git rebase'
-alias gri='git rebase -i'
-alias grs='git reset'
-alias gd='git diff'
-alias ga='git add'
-alias gp='git push'
-alias gaa='git add --all'
-alias grss='git reset --soft HEAD~'
-alias gop='git open'
-alias gpdev='git pull framgia develop'
-alias gpmas='git pull framgia master'
+# Storing changes into a temporary commit and making an interactive rebase.
 grip() {
-  gaa; gc -m "a"; gri HEAD~"$1"; gp origin $(git_branch) -f; gop;
-}
-gap() {
-  gaa; gc -S -m "$1"; gp origin $(git_branch); gop;
-}
-garp() {
-  gaa; git commit --amend --no-edit; gp origin $(git_branch) -f; gop;
-}
-gca() {
-  gaa; git commit --amend; gp origin $(git_branch) -f; gop;
-}
-grf() {
-  git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
+  git add --all; git commit -m "a"; git rebase -i HEAD~"$1"; git push origin $(git_branch) -f; git open;
 }
 
-# Copying SSH key
+# Adding all current files to staging area, specifying the commit message and pushing these changes up to the current branch.
+gap() {
+  git add --all; git commit -S -m "$1"; git push origin $(git_branch); git open;
+}
+
+# Appending changes to the latest commit without changing the commit message and pushing these changes up to the current branch.
+garp() {
+  git add --all; git commit --amend --no-edit; git push origin $(git_branch) -f; git open;
+}
+
+# Updating the commit message and pushing the change up to the current branch.
+gca() {
+  git add --all; git commit --amend; git push origin $(git_branch) -f; git open;
+}
+
+
+### SSH
+# Copying SSH key.
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && ssh_message"
 ssh_message() {
   notify-send 'Copied SSH key to clipboard.' --urgency='normal' -i /home/likewise-open/FRAMGIA/nguyen.ngoc.vinh/.cli-icons/key.png
 }
 
-# Docker Compose
+
+### Docker Compose.
 alias dkcup='/usr/local/bin/docker-compose up -d'
 alias dkcdown='/usr/local/bin/docker-compose down'
 
-# Docker projects
-# Viblo
+
+### Viblo Project.
 alias viblo='cd ~/code/viblo'
 alias vibw='docker exec -it viblo_workspace /bin/bash'
 alias vibup='cd ~/code/viblo/ && dkcup && vibw'
@@ -120,6 +121,8 @@ alias vibdown='cd ~/code/viblo/ && dkcdown'
 alias vibsql='docker exec -it viblo_pgsql /bin/bash'
 alias vibsqltest='docker exec -it viblo_pgsql_test /bin/bash'
 
+
+### Extracting different types of archive.
 extract() {
   if [ -f $1 ] ; then
     case $1 in
