@@ -18,3 +18,4 @@ linter-sass-lint
 php-integrator-*
 project-manager
 indent-guide-improved
+sync-settings
