@@ -1,11 +1,6 @@
 Babel
-Colorsublime
-Colorsublime - Themes
 DocBlockr
 GitGutter
-Inline Google Translate
-JSX
-Laravel 5 Artisan
 Material Theme
 Oceanic Next Color Scheme
 Origami
@@ -13,11 +8,9 @@ PackageResourceViewer
 PHP Companion
 PHP Getters and Setters
 Sass
-SideBarEnhancements
 SimplePHPUnit
 SublimeLinter
 SublimeLinter-php
-WordCount
 AdvancedNewFile
 All Autocomplete
 Can I use
@@ -25,3 +18,4 @@ MarkdownEditing
 PlainTasks
 Pretty JSON
 Vue Syntax Highlight
+SnippetMaker
