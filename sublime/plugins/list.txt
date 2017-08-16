@@ -19,3 +19,4 @@ PlainTasks
 Pretty JSON
 Vue Syntax Highlight
 SnippetMaker
+PHP CS Fixer
