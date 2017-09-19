@@ -1,21 +1,26 @@
 {
 	"added_words":
 	[
-		"popup",
-		"lodash",
-		"vue",
+		"Perceptron",
+		"backpropagation",
+		"Scikit",
+		"softmax",
+		"wiki",
+		"org",
+		"Tanh",
 		"html",
-		"plugins",
-		"app"
+		"Feedforward"
 	],
+	"always_show_minimap_viewport": true,
 	"auto_complete_cycle": true,
 	"auto_find_in_selection": true,
 	"caret_extra_bottom": 5,
 	"caret_extra_top": 5,
 	"caret_extra_width": 1,
-	"caret_style": "smooth",
+	"caret_style": "phase",
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/User/SublimeLinter/Agila Oceanic Next (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/OceanicNext (SL).tmTheme",
+	"draw_minimap_border": true,
 	"enable_tab_scrolling": false,
 	"ensure_newline_at_eof_on_save": true,
 	"fade_fold_buttons": true,
@@ -41,18 +46,24 @@
 	"ignored_packages":
 	[
 	],
+	"ignored_words":
+	[
+		"http",
+		"https",
+		"wikipedia"
+	],
 	"indent_guide_options":
 	[
 		"draw_normal",
 		"draw_active"
 	],
 	"indent_to_bracket": true,
-	"line_numbers": true,
-	"line_padding_bottom": 6,
-	"line_padding_top": 6,
+	"line_numbers": false,
+	"line_padding_bottom": 5,
+	"line_padding_top": 5,
 	"match_brackets_angle": true,
 	"material_theme_accent_red": true,
-	"material_theme_accent_scrollbars": true,
+	"material_theme_accent_scrollbars": false,
 	"material_theme_bullet_tree_indicator": true,
 	"material_theme_contrast_mode": true,
 	"material_theme_disable_folder_animation": true,
@@ -73,8 +84,12 @@
 	"show_encoding": true,
 	"show_full_path": false,
 	"show_line_endings": true,
-	"spell_check": true,
-	"theme": "Material-Theme-Darker.sublime-theme",
+	"spell_check": false,
+	"theme": "Material-Theme.sublime-theme",
+	"theme_font_options":
+	[
+		"gray_antialias"
+	],
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": false
