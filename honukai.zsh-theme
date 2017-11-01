@@ -51,7 +51,10 @@ PROMPT="
 ${hg_info}\
 ${git_info}\
 %{$terminfo[bold]$fg[red]%}
-∘∘∘ ➜ %{$reset_color%}"
+%{$fg_bold[red]%}‣%{$reset_color%} \
+%{$fg_bold[yellow]%}‣%{$reset_color%} \
+%{$fg_bold[blue]%}‣%{$reset_color%} \
+%{$fg_bold[green]%}‣%{$reset_color%} "
 
 if [[ "$USER" == "root" ]]; then
 PROMPT="
