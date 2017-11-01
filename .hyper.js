@@ -118,7 +118,8 @@ module.exports = {
     "hyperlinks",
     "hyper-statusline",
     // "hyperterm-atom-dark",
-    "hyperterm-deep-space",
+    // "hyperterm-deep-space",
+    "hyper-chesterish",
     "hyper-tabs-enhanced"
   ],
 
