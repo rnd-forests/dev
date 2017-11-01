@@ -99,6 +99,12 @@ module.exports = {
     // bellSoundURL: 'http://example.com/bell.mp3',
 
     // for advanced config flags please refer to https://hyper.is/#cfg
+
+    hyperTabs: {
+      border: true,
+      tabIconsColored: true,
+      closeAlign: 'right'
+    }
   },
 
   // a list of plugins to fetch and install from npm
@@ -111,8 +117,9 @@ module.exports = {
     "hypercwd",
     "hyperlinks",
     "hyper-statusline",
-    "hyper-pane",
-    "hyperterm-atom-dark"
+    // "hyperterm-atom-dark",
+    "hyperterm-deep-space",
+    "hyper-tabs-enhanced"
   ],
 
   // in development, you can create a directory under
