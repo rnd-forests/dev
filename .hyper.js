@@ -14,7 +14,7 @@ module.exports = {
     uiFontFamily: '"Droid Sans", sans-serif',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: 'rgba(255,255,255,0.8)',
+    cursorColor: 'rgba(255,255,255,1)',
 
     // `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
     cursorShape: 'UNDERLINE',
@@ -39,12 +39,12 @@ module.exports = {
 
     // set to `true` (without backticks) if you're using a Linux setup that doesn't show native menus
     // default: `false` on Linux, `true` on Windows (ignored on macOS)
-    showHamburgerMenu: '',
+    showHamburgerMenu: true,
 
     // set to `false` if you want to hide the minimize, maximize and close buttons
     // additionally, set to `'left'` if you want them on the left, like in Ubuntu
     // default: `true` on windows and Linux (ignored on macOS)
-    showWindowControls: '',
+    showWindowControls: false,
 
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '5px 15px',
@@ -116,9 +116,10 @@ module.exports = {
   plugins: [
     "hypercwd",
     "hyperlinks",
-    "hyper-statusline",
+    // "hyper-statusline",
     // "hyperterm-atom-dark",
     // "hyperterm-deep-space",
+    "hyperminimal",
     "hyper-chesterish",
     "hyper-tabs-enhanced"
   ],
