@@ -1,5 +1,8 @@
-alias pbcopy='xsel --clipboard --input'
+alias pbcopy='xsel --clipboard --input && copy_message'
 alias pbpaste='xsel --clipboard --output'
+copy_message() {
+  notify-send 'Contents copied to the clipboard.' --urgency='normal' -i /home/vinhnguyen/.cli-icons/copy.png
+}
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -104,22 +107,8 @@ gca() {
 # Copying SSH key.
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && ssh_message"
 ssh_message() {
-  notify-send 'Copied SSH key to clipboard.' --urgency='normal' -i /home/likewise-open/FRAMGIA/nguyen.ngoc.vinh/.cli-icons/key.png
+  notify-send 'Copied SSH key to the clipboard.' --urgency='normal' -i /home/vinhnguyen/.cli-icons/key.png
 }
-
-
-### Docker Compose.
-alias dkcup='/usr/local/bin/docker-compose up -d'
-alias dkcdown='/usr/local/bin/docker-compose down'
-
-
-### Viblo Project.
-alias viblo='cd ~/code/viblo'
-alias vibw='docker exec -it viblo_workspace /bin/bash'
-alias vibup='cd ~/code/viblo/ && dkcup && vibw'
-alias vibdown='cd ~/code/viblo/ && dkcdown'
-alias vibsql='docker exec -it viblo_pgsql /bin/bash'
-alias vibsqltest='docker exec -it viblo_pgsql_test /bin/bash'
 
 
 ### Extracting different types of archive.
