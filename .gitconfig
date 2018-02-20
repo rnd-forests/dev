@@ -1,6 +1,7 @@
 [user]
     email = ngocvinh.nnv@gmail.com
     name = Vinh Nguyen
+    signingkey = 
 [filter "lfs"]
     clean = git-lfs clean %f
     smudge = git-lfs smudge %f
@@ -31,9 +32,9 @@
 [core]
     editor = nano
 [diff]
-	renames = copies
-	mnemonicprefix = true
+    renames = copies
+    mnemonicprefix = true
 [rerere]
-	enabled = true
+    enabled = true
 [merge]
-	stat = true
+    stat = true
