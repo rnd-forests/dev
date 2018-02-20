@@ -1,3 +1,3 @@
 ## Personal Development Environment
 
-- Atom perferences: https://gist.github.com/vinhnguyen-fly/0312673790c0bccdb7b0e80c3df63707
+- VSCode perferences: https://gist.github.com/rnd-forests/a746775a849d12ce31d8fa4fd882140d
