@@ -80,7 +80,7 @@ local terminal     = "gnome-terminal"
 local editor       = os.getenv("EDITOR") or "nano"
 local gui_editor   = "gvim"
 local browser      = "google-chrome"
-local guieditor    = "subl"
+local guieditor    = "code"
 local scrlocker    = "xlock"
 
 awful.util.terminal = terminal
@@ -93,11 +93,11 @@ awful.layout.layouts = {
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
-    --awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
-    --awful.layout.suit.magnifier,
+    -- awful.layout.suit.magnifier,
     --awful.layout.suit.corner.nw,
     --awful.layout.suit.corner.ne,
     --awful.layout.suit.corner.sw,
@@ -222,7 +222,7 @@ root.buttons(my_table.join(
 ))
 -- }}}
 
--- {{{ Key bindings
+-- {{{ Key bindingspp
 globalkeys = my_table.join(
     -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
@@ -725,3 +725,14 @@ client.connect_signal("focus", border_adjust)
 client.connect_signal("property::maximized", border_adjust)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- Define startup applications
+do
+  local apps = {
+    "ibus-daemon",
+  }
+
+  for _, i in pairs(apps) do
+    awful.util.spawn(i)
+  end
+end
