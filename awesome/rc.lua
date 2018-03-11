@@ -222,7 +222,7 @@ root.buttons(my_table.join(
 ))
 -- }}}
 
--- {{{ Key bindingspp
+-- {{{ Key bindings
 globalkeys = my_table.join(
     -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
