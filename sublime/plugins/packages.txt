@@ -20,3 +20,12 @@ Pretty JSON
 Vue Syntax Highlight
 SnippetMaker
 PHP CS Fixer
+Ansible
+AnsibleSnippets
+Dockerfile Syntax Highlighting
+ExportHtml
+GraphQL
+INI
+JinJa2
+MarkdownPreview
+ProjectManager

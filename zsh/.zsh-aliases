@@ -1,7 +1,7 @@
-alias pbcopy='xsel --clipboard --input && copy_message'
 alias pbpaste='xsel --clipboard --output'
+alias pbcopy='xsel --clipboard --input && copy_message'
 copy_message() {
-  notify-send 'Contents copied to the clipboard.' --urgency='normal' -i /home/vinhnguyen/.cli-icons/copy.png
+  notify-send 'Contents copied to the clipboard.' --urgency='normal'
 }
 
 alias ..='cd ..'
@@ -107,8 +107,13 @@ gca() {
 # Copying SSH key.
 alias sshkey="cat ~/.ssh/id_rsa.pub | pbcopy && ssh_message"
 ssh_message() {
-  notify-send 'Copied SSH key to the clipboard.' --urgency='normal' -i /home/vinhnguyen/.cli-icons/key.png
+  notify-send 'Copied SSH key to the clipboard.' --urgency='normal'
 }
+
+
+### Docker
+alias docker-stop-all="docker kill $(docker ps -a -q)"
+alias docker-remove-all="docker rm $(docker ps -a -q)"
 
 
 ### Extracting different types of archive.

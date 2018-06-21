@@ -1,16 +1,4 @@
 {
-	"added_words":
-	[
-		"Perceptron",
-		"backpropagation",
-		"Scikit",
-		"softmax",
-		"wiki",
-		"org",
-		"Tanh",
-		"html",
-		"Feedforward"
-	],
 	"always_show_minimap_viewport": true,
 	"auto_complete_cycle": true,
 	"auto_find_in_selection": true,
@@ -45,12 +33,6 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-	],
-	"ignored_words":
-	[
-		"http",
-		"https",
-		"wikipedia"
 	],
 	"indent_guide_options":
 	[
