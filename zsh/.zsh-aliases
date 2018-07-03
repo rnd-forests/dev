@@ -19,7 +19,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias install='sudo apt-get install'
+alias install='sudo apt install'
 alias sha1='openssl sha1'
 alias ports='netstat -tulanp'
 
@@ -43,17 +43,6 @@ serve() {
   php -S localhost:"$1"
 }
 
-# Adding color for some common command.
-if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  alias ls='ls --color=auto'
-  alias dir='dir --color=auto'
-  alias vdir='vdir --color=auto'
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
-fi
-
 # Changing to a specified directory and listing all files inside it.
 cls() {
   cd "$1"; ls;
@@ -66,12 +55,11 @@ alias gs='git status'
 alias gb='git branch'
 alias gco='git checkout'
 alias gaa='git add --all'
-alias glogo='git log --oneline'
+alias gfa='git fetch --all'
 alias grss='git reset --soft HEAD~'
-alias gpdev='git pull framgia develop'
-alias gpmas='git pull framgia master'
 alias gundo='git reset HEAD~ && git clean -df'
-alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias nah='git reset --hard && git clean -df'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset - %s%n%C(yellow)%d%Creset %Cgreen(%cr) %Cblue(%an)%Creset%n'"
 
 # Parsing current git branch
 git_branch() {
@@ -100,6 +88,11 @@ garp() {
 # Updating the commit message and pushing the change up to the current branch.
 gca() {
   git add --all; git commit --amend; git push origin $(git_branch) -f; git open;
+}
+
+# Create a 'working in progress' commit
+wip() {
+  git add --all; git commit -m 'wip';
 }
 
 
