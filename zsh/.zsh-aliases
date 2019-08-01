@@ -38,6 +38,9 @@ alias shutdown='sudo /sbin/shutdown'
 alias chrome='/opt/google/chrome/chrome'
 alias src='source ~/.zshrc'
 
+# Install Python pygments first --> sudo apt install python-pygments
+alias pcat='pygmentize -f terminal256 -O style=native -g'
+
 # Starting a simple PHP server.
 serve() {
   php -S localhost:"$1"
