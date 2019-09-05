@@ -38,6 +38,8 @@ alias shutdown='sudo /sbin/shutdown'
 alias chrome='/opt/google/chrome/chrome'
 alias src='source ~/.zshrc'
 
+alias pls='ls -l --color -h --group-directories-first -s -A'
+
 # Install Python pygments first --> sudo apt install python-pygments
 alias pcat='pygmentize -f terminal256 -O style=native -g'
 
