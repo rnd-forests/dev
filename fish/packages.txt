@@ -1,2 +1,3 @@
 - https://github.com/oh-my-fish/oh-my-fish
 - https://github.com/oh-my-fish/theme-bobthefish
+- https://github.com/jorgebucaran/fisher
