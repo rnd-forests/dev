@@ -1,3 +1,4 @@
+# Theme
 set -g theme_display_git yes
 set -g theme_display_git_dirty yes
 set -g theme_display_git_untracked yes
@@ -33,6 +34,23 @@ set -g fish_prompt_pwd_dir_length 0
 set -g theme_project_dir_length 1
 set -g theme_newline_cursor yes
 set -g theme_newline_prompt '$ '
+
+# Golang
+set -gx PATH $PATH /usr/local/go/bin
+set -gx PATH $PATH $HOME/.go/bin
+set -gx GOPATH $HOME/.go
+
+# Rbenv
+set -gx PATH $HOME/.rbenv/bin $PATH
+status --is-interactive; and source (rbenv init -|psub)
+set -gx PATH $HOME/.rbenv/plugins/ruby-build/bin $PATH
+
+# fuck
+thefuck --alias | source
+
+# fnm
+set -gx PATH $HOME/.fnm $PATH
+fnm env --multi | source
 
 alias pbpaste='xsel --clipboard --output'
 alias pbcopy='xsel --clipboard --input && notify_contents_copied'
