@@ -52,6 +52,9 @@ thefuck --alias | source
 set -gx PATH $HOME/.fnm $PATH
 fnm env --multi | source
 
+# Composer
+set -gx PATH $HOME/.config/composer/vendor/bin $PATH
+
 alias pbpaste='xsel --clipboard --output'
 alias pbcopy='xsel --clipboard --input && notify_contents_copied'
 
