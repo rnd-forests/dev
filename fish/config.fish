@@ -39,6 +39,7 @@ set -g theme_newline_prompt '$ '
 set -gx PATH $PATH /usr/local/go/bin
 set -gx PATH $PATH $HOME/.go/bin
 set -gx GOPATH $HOME/.go
+set -gx GO111MODULE on
 
 # Rbenv
 set -gx PATH $HOME/.rbenv/bin $PATH
